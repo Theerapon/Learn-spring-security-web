@@ -18,8 +18,25 @@
 			User: <security:authentication property="principal.username"/>
 			<br><br>
 			Role(s): <security:authentication property="principal.authorities"/>
-		</p>
-			
+		</p>	
+	
+	
+		<security:authorize access="hasRole('MANAGER')">
+			<hr>
+			<p>
+				<a href="${pageContext.request.contextPath}/leaders">LeaderShip Meeting</a>
+				(Only for Manager peeps)
+			</p>
+		
+		</security:authorize>
+		
+		<security:authorize access="hasRole('ADMIN')">
+			<hr>
+			<p>
+				<a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a>
+				(Only for Admin peeps)
+			</p>
+		</security:authorize>
 		
 	<hr>
 	
